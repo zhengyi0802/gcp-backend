@@ -90,7 +90,7 @@ return [
 
         'media' => [
             'driver'   => 'ftp',
-            'host'     => 'server4.mundi-tv.tk',
+            'host'     => 'server04.mdo.tw',
             'username' => 'majorsite',
             'password' => 'laravel1234',
         ],

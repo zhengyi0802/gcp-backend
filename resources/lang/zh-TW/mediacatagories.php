@@ -1,0 +1,30 @@
+<?php
+
+    return [
+        'page_title'       => '影音目錄資料表',
+        'page_header'      => '影音目錄資料表',
+        'table_name'       => '影音目錄',
+        'index'            => '編號',
+        'option'           => '主選單',
+        'option_elearning' => '教學',
+        'option_media'     => '影音',
+        'option_menu'      => '主選單自定義',
+        'parent'           => '上層目錄',
+        'parent_root'      => '根目錄',
+        'project'          => '專案名稱',
+        'name'             => '目錄名稱',
+        'type'             => '目錄類型',
+        'type_catagory'    => '目錄',
+        'type_content'     => '內容',
+        'description'      => '描述',
+        'thumbnail'        => '圖示',
+        'status'           => '狀態',
+        'created_by'       => '建立者',
+        'success_message'  => '成功訊息',
+        'error_message'    => '失敗訊息',
+        'insert_ok'        => '成功新增影音目錄',
+        'update_ok'        => '成功修改影音目錄',
+        'insert_error'     => '新增影音目錄失敗',
+        'update_error'     => '修改影音目錄失敗',
+    ];
+

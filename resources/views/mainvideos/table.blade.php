@@ -4,7 +4,7 @@ $heads = [
     __('mainvideos.project'),
     __('mainvideos.type'),
     __('mainvideos.playlist'),
-    __('nainvideos.created_by'),
+    __('mainvideos.created_by'),
     ['label' => __('tables.action'), 'no-export' => true, 'width' => 10],
 ];
 $config = [

@@ -24,7 +24,7 @@ class ResellerCollection
     public ?Logo           $logo;
     public ?Collection     $businesses;
     public ?Collection     $advertisings;
-    public ?Collection     $mainvideos;
+    public ?Collection     $mainvideo;
     public ?Collection     $marquees;
     public ?Collection     $bulletins;
     public ?AppMenuCollection     $appmenus;
@@ -36,7 +36,7 @@ class ResellerCollection
     {
         $this->project_id      = $id;
         $this->project         = Project::find($id);
-        $this->mainvideos      = MainVideo::where('project_id', $id)->where('status', true)->latest()->get();
+        $this->mainvideo       = MainVideo::where('project_id', $id)->where('status', true)->latest()->first();
         $this->logo            = Logo::where('status', true)->where('project_id', $id)->orWhere('project_id', 1)->orderBy('id', 'DESC')->first();
         $this->businesses      = Business::where('project_id', $id)->where('status', true)->latest()->get();
         $this->advertisings    = Advertising::where('project_id', $id)->where('status', true)->latest()->get();

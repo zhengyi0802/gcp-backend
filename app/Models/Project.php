@@ -25,9 +25,9 @@ class Project extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
-    public function mainvideos()
+    public function mainvideo()
     {
-        return $this->hasMany(MainVideo::class, 'project_id');
+        return $this->hasMany(MainVideo::class, 'project_id')->latest()->first();
     }
 
     public function appadvertisings()

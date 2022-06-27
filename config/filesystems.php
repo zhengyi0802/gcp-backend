@@ -90,7 +90,7 @@ return [
 
         'media' => [
             'driver'   => 'ftp',
-            'host'     => 'server04.mdo.tw',
+            'host'     => 'ftpserver01.mdo.tw',
             'username' => 'majorsite',
             'password' => 'laravel1234',
         ],

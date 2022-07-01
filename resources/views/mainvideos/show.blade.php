@@ -42,10 +42,12 @@
          icon="fas fa-lg fa-clock text-primary" theme="warning" icon-theme="white">
         <pre>{{ $mainvideo->playlists() }}</pre>
       </x-adminlte-card>
+      @if ($mainvideo->type != 'youtube_playlist_id')
       <x-adminlte-card title="{{ __('mainvideos.playlist') }}"
          icon="fas fa-lg fa-clock text-primary" theme="warning" icon-theme="white">
          <x-embed url="{{ $mainvideo->firstvideo() }}" />
       </x-adminlte-card>
+      @endif
       </div>
     </div>
     <div class="row col-12">

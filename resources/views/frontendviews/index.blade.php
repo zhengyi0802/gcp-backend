@@ -81,7 +81,7 @@
       }
       function editMainVideo() {
          var project_id = document.getElementById('project').value;
-         window.location = '/resellers/create?p=mainvideo&project_id' + project_id;
+         window.location = '/resellers/create?p=mainvideo&project_id=' + project_id;
       }
       function editBulletin() {
          var project_id = document.getElementById('project').value;

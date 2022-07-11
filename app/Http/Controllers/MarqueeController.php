@@ -52,14 +52,22 @@ class MarqueeController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
+        $data = $request->all();
+
         if ($user->canCreate(Content::Marquee)) {
-            $data = $request->all();
+            $marquee = Marquee::where('name', $data['name'])->first();
+            if ($marquee != null) {
+                return redirect()->route('marquees.index')
+                                 ->with('insert-error', 'Insert Error');
+            }
             $data['status'] = true;
             $data['created_by'] = $user->id;
             if ($data['type'] == 1) {
                 $data['project_id'] = null;
             }
             Marquee::create($data);
+            return redirect()->route('marquees.index')
+                              ->with('insert-success', 'Insert Success');
         }
         return redirect()->route('marquees.index');
     }

@@ -45,8 +45,14 @@ class ProductStatusController extends Controller
     public function store(Request $request)
     {
         $suser = auth()->user();
+        $data = $request->all();
+
         if ($suser->canCreate(Content::ProductStatus)) {
-            $data = $request->all();
+            $productstatus = ProductStatus::where('name', $data['name'])->first();
+            if ($productstatus != null) {
+                return redirect()->route('productstatuses.index')
+                                 ->with('insert-error', 'Insert Error');
+            }
             $data['status'] = true;
             $data['created_by'] = $suser->id;
             try {

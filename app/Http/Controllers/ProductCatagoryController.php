@@ -45,8 +45,14 @@ class ProductCatagoryController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
+        $data = $request->all();
+
         if ($user->canCreate(Content::Product)) {
-            $data = $request->all();
+            $productcatagory = ProductCatagory::where('name', $data['name'])->first();
+            if ($productcatagory != null) {
+                return redirect()->route('productcatagories.index')
+                                 ->with('insert-error', 'Insert Error');
+            }
             $data['status'] = true;
             $data['created_by'] = $user->id;
             try {

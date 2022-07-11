@@ -53,12 +53,19 @@ class QACatagoryController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
+        $data = $request->all();
+
         if ($user->canCreate(Content::QA)) {
-            $data = $request->all();
+            $qacatagory = QACatagory::where('name', $data['name'])->first();
+            if ($qacatagory != null) {
+                return redirect()->route('qacatagories.index')
+                                 ->with('insert-error', 'Insert Error');
+            }
             $data['created_by'] = $user->id;
             $data['status'] = true;
             QACatagory::create($data);
-           return redirect()->route('qacatagories.index');
+           return redirect()->route('qacatagories.index')
+                            ->with('insert-success', 'Insert OK');
         }
         return redirect()->route('qacatagories.index');
     }

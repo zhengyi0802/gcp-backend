@@ -69,12 +69,13 @@ class LogoController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
+        $data = $request->all();
+
         if ($user->canCreate(Content::Logo)) {
             if (!$request->file()) {
                 return redirect()->route('logos.index')
                                  ->with('insert-error', 'insert error');
             }
-            $data = $request->all();
             $logo = Logo::where('name', $data['name'])->first();
             if ($logo == null) {
                 $upload = new ImageUpload('logos');

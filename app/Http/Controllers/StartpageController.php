@@ -76,8 +76,14 @@ class StartpageController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
+        $data = $request->all();
+
         if ($user->canCreate(Content::Startpage)) {
-            $data = $request->all();
+            $startpage = StartPage::where('name', $data['name'])->first();
+            if ($startpage != null) {
+                return redirect()->route('startpages.index')
+                                 ->with('insert-error', 'Insert Error');
+            }
             $data['status'] = true;
             $data['created_by'] = $user->id;
             if ($data['mime_type'] == 'image' || $data['mime_type'] == 'i_video') {

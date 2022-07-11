@@ -19,6 +19,7 @@
         'insert_ok'        => '成功新增專案',
         'update_ok'        => '成功修改專案',
         'insert_error'     => '新增專案失敗',
+        'insert_error1'    => '專案名稱已存在',
         'update_error'     => '修改專案失敗',
     ];
 

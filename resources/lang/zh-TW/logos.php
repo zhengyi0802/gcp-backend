@@ -16,6 +16,7 @@
         'error_message'    => '失敗訊息',
         'insert_ok'        => '成功新增Logo',
         'update_ok'        => '成功修改Logo',
+        'insert_error1'    => 'Logo名稱已存在',
         'insert_error'     => '新增Logo失敗',
         'update_error'     => '修改Logo失敗',
     ];

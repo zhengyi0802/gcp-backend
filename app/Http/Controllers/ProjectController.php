@@ -47,9 +47,15 @@ class ProjectController extends Controller
         $suser = auth()->user();
         $data = $request->all();
         if ($suser->canCreate(Content::Project)) {
-            $data['created_by'] = $suser->id;
-            $data['status']     = true;
-            Project::create($data);
+            $project = Project::where('name', $data['name'])->first();
+            if ($project == null) {
+                $data['created_by'] = $suser->id;
+                $data['status']     = true;
+                Project::create($data);
+            } else {
+                return redirect()->route('projects.index')
+                       ->with('insert-error1', 'project exists');
+            }
         }
         return redirect()->route('projects.index');
     }

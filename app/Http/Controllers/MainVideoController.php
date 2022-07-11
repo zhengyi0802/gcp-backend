@@ -58,12 +58,20 @@ class MainVideoController extends Controller
         $data = $request->all();
 
         if ($user->canCreate(Content::MainVideo)) {
-            //$data = $request->all();
-            $data['status'] = true;
-            $data['created_by'] = $user->id;
-            $arr = explode("\r\n", $request->input('playlist'));
-            $data['playlist'] = json_encode($arr);
-            $mainvideo = MainVideo::create($data);
+            $mainvideo = MainVideo::where('name', $data['name'])->first();
+            if ($mainvideo == null) {
+                //$data = $request->all();
+                $data['status'] = true;
+                $data['created_by'] = $user->id;
+                $arr = explode("\r\n", $request->input('playlist'));
+                $data['playlist'] = json_encode($arr);
+                $mainvideo = MainVideo::create($data);
+                return redirect()->route('mainvideos.index')
+                                 ->with('insert-success', 'Insert Ok');
+            } else {
+                return redirect()->route('mainvideos.index')
+                                 ->with('insert-error', 'Insert Error');
+            }
         }
         return redirect()->route('mainvideos.index');
     }

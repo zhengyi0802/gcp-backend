@@ -44,11 +44,19 @@ class ApkCatagoryController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
+        $data = $request->all();
+
         if ($user->canCreate(Content::ApkManager)) {
-            $data = $request->all();
+            $apkcatagory = ApkCatagory::where('name', $data['name'])->first();
+            if ($apkcatagory != null) {
+                return redirect()->route('apkcatagories.index')
+                                 ->with('insert-error', 'Insert Error');
+            }
             $data['status'] = true;
             $data['created_by'] = $user->id;
             ApkCatagory::create($data);
+            return redirect()->route('apkcatagories.index')
+                             ->with('insert-success', 'Insert OK');
         }
         return redirect()->route('apkcatagories.index');
     }

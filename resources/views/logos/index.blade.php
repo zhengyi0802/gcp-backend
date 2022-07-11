@@ -17,6 +17,11 @@
          {{ __('logos.insert_error') }}
       </x-adminlte-card>
       @endif
+      @if ($message = Session::get('insert-error1'))
+      <x-adminlte-card title="{{ __('logos.error_message') }}" theme="danger" icon="fas fa-lg fa-bell" removable>
+         {{ __('logos.insert_error1') }}
+      </x-adminlte-card>
+      @endif
       @if ($message = Session::get('update-success'))
       <x-adminlte-card title="{{ __('logos.success_message') }}" theme="info" icon="fas fa-lg fa-bell" removable>
          {{ __('logos.update_ok') }}

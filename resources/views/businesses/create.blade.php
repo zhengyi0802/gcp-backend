@@ -12,7 +12,7 @@
              @endforeach
            </x-adminlte-select>
            <x-adminlte-input name="serial"  label="{{ __('businesses.serial') }}"
-             fgroup-class="col-md-4" placeHolder="0" />
+             fgroup-class="col-md-4" value="1" />
            <x-adminlte-input name="intervals"  label="{{ __('businesses.intervals') }}"
              fgroup-class="col-md-4" value="15" />
         </div>

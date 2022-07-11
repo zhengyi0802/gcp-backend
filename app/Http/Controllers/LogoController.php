@@ -72,20 +72,25 @@ class LogoController extends Controller
         if ($user->canCreate(Content::Logo)) {
             if (!$request->file()) {
                 return redirect()->route('logos.index')
-                                 ->with('insert_error', 'insert error');
+                                 ->with('insert-error', 'insert error');
             }
             $data = $request->all();
+            $logo = Logo::where('name', $data['name'])->first();
+            if ($logo == null) {
+                $upload = new ImageUpload('logos');
+                $result = $upload->process($request->file);
+                $data['image']   = $result->url;
+                $data['file_id'] = $result->id;
 
-            $upload = new ImageUpload('logos');
-            $result = $upload->process($request->file);
-            $data['image']   = $result->url;
-            $data['file_id'] = $result->id;
-
-            $data['status'] = true;
-            $data['created_by'] = $user->id;
-            Logo::create($data);
-            return redirect()->route('logos.index')
+                $data['status'] = true;
+                $data['created_by'] = $user->id;
+                Logo::create($data);
+                return redirect()->route('logos.index')
                              ->with('insert-success', 'insert OK');
+            } else {
+                return redirect()->route('logos.index')
+                                 ->with('insert-error1', 'insert error');
+            }
         }
         return redirect()->route('logos.index');
     }

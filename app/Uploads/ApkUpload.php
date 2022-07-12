@@ -18,7 +18,7 @@ class ApkUpload extends Upload
 
     public function process($package)
     {
-        $result = parent::storage($package);
+        $result = parent::storage($package, false);
         $info   = $this->getPackageInfo($result->storename);
         $info['id']   = $result->id;
         $info['path'] = $result['url'];

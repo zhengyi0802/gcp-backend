@@ -147,23 +147,10 @@ class ApkProgramController extends Controller
     public function update(Request $request, ApkProgram $apkprogram)
     {
         $user = auth()->user();
+        $data = $request->all();
         if ($user->canUpdate(Content::ApkManager)) {
-            $data = $request->all();
-            $data['type_id'] = json_encode($data['type_id']);
-            $data['project_id'] = json_encode($data['project_id']);
-            $data['file_id'] = 0;
-            if ($reqyest->file()) {
-                $upload = new ApkUpload();
-                $result = $upload->process($request->file);
-                $data['label']                = $result['label'];
-                $data['packge_name']          = $result['package_name'];
-                $data['package_version_name'] = $result['package_version_name'];
-                $data['package_version_code'] = $result['package_version_code'];
-                $data['sdk_version']          = $result['sdk_version'];
-                $data['icon']                 = $result['icon'];
-                $data['path']                 = $result['path'];
-                $data['file_id']              = $result['id'];
-            }
+            //$data['type_id'] = json_encode($data['type_id']);
+            //$data['project_id'] = json_encode($data['project_id']);
             $mac_addresses = trim($data['mac_addresses']);
             $macaddresses  = explode("\r\n", $mac_addresses);
             $mac_array = array();

@@ -28,6 +28,7 @@
            </x-adminlte-select>
       </div>
     </div>
+<!--
     <div class="row col-12">
       <div class="card-group col-md-12">
         @include('apkprograms.listprojects')
@@ -36,6 +37,7 @@
         @include('apkprograms.listtypes')
       </div>
     </div>
+-->
     <div class="row col-12">
        <x-adminlte-textarea name="mac_addresses" label="{{ __('apkprograms.macaddresses') }}" rows=5 fgroup-class="col-md-12"
            igroup-size="sm" >

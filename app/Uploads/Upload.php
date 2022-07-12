@@ -31,6 +31,7 @@ class Upload
         if ($ftp_enabled) {
             $fullpath = $this->path.'/'.$this->subpath.'/'.$storename;
             $pathname = Storage::disk('media')->put($fullpath, fopen($content, 'r+'));
+            //$pathname  = $content->storeAs($this->subpath, $storename, $this->path);
             $url      = env('FTP_URL').'/'.$fullpath;
         } else {
             $pathname  = $content->storeAs($this->subpath, $storename, $this->path);

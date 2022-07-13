@@ -8,7 +8,7 @@
         'project'          => '專案名稱',
         'serial'           => '順序',
         'logo_url'         => 'Logo圖示',
-        'link_url'         => '連結網址',
+        'link_url'         => '連結網址(選填)',
         'intervals'        => '時間間隔(秒)',
         'status'           => '狀態',
         'created_by'       => '建立者',

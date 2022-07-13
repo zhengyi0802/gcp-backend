@@ -8,7 +8,7 @@
         'project'          => '專案名稱',
         'index2'           => '順序',
         'thumbnail'        => '廣告圖片',
-        'link_url'         => '連結網址',
+        'link_url'         => '連結網址(選填)',
         'status'           => '狀態',
         'created_by'       => '建立者',
         'success_message'  => '成功訊息',

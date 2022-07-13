@@ -7,7 +7,7 @@
         'index'            => '編號',
         'position'         => '順序',
         'name'             => '目錄名稱',
-        'description'      => '描述',
+        'description'      => '描述(選填)',
         'status'           => '狀態',
         'created_by'       => '建立者',
         'success_message'  => '成功訊息',

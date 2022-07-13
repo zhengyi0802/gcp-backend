@@ -8,7 +8,7 @@
         'project'                  => '專案',
         'type'                     => '類型',
         'playlist'                 => '播放清單',
-        'description'              => '描述',
+        'description'              => '描述(選填)',
         'status'                   => '狀態',
         'created_by'               => '建立者',
         'type_video'               => '影片',

@@ -20,7 +20,7 @@
         'company'                => '公司名稱',
         'title'                  => '職務',
         'photo'                  => '頭像',
-        'description'            => '個人訊息',
+        'description'            => '個人訊息(選填)',
         'is_admin'               => '管理員權限',
         'role'                   => '權限',
         'role_admin'             => '超級管理員',

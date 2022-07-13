@@ -30,7 +30,7 @@
             };
            </script>
            </div>
-           <x-adminlte-input name="link_url"  label="{{ __('logos.link_url') }}"
+           <x-adminlte-input name="link_url"  label="{{ __('businesses.link_url') }}"
              fgroup-class="col-md-6" />
         </div>
         <x-slot name="footerSlot">

@@ -85,7 +85,7 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
-    public function delete(User $user)
+    public function destroy(User $user)
     {
         $suser = auth()->user();
         if ($suser->canDelete(Content::User)) {

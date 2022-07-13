@@ -37,7 +37,7 @@
         </div>
         <div class="card-group">
            <x-adminlte-input name="email" label="{{ __('users.email') }}" fgroup-class="col-md-6" />
-           <x-adminlte-input type="new-password" name="password" label="{{ __('users.password') }}" fgroup-class="col-md-6" />
+           <x-adminlte-input type="password" name="new-password" label="{{ __('users.password') }}" fgroup-class="col-md-6" />
         </div>
         <div class="card-group">
            <x-adminlte-input name="company" label="{{ __('users.company') }}" fgroup-class="col-md-6" />

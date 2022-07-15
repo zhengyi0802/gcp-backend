@@ -104,7 +104,7 @@ class UserController extends Controller
         $user = User::find($user_id);
         if ($user_id > 6) {
             if ($suser->canCreate(Content::Project)) {
-                $projects = Project::where('created_by', $suser->id)->get();
+                $projects = $suser->projects();
             } else {
                 return redirect()->route('users.index');
             }

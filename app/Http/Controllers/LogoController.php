@@ -24,8 +24,7 @@ class LogoController extends Controller
         if ($user->canRead(Content::Logo)) {
             $projects = $user->projects();
             $array = $projects->pluck('id')->toArray();
-            $logos = Logo::where('status', true)->whereIn('id', $array)->latest()->get();
-
+            $logos = Logo::where('status', true)->whereIn('project_id', $array)->get();
             return view('logos.index', compact('logos'))
                    ->with(compact('projects'));
         }

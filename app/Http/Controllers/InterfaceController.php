@@ -299,7 +299,7 @@ class InterfaceController extends Controller {
         }
     }
 
-    public function onekeyinstaller(Request $request, $internal)
+    public function onekeyinstaller(Request $request, $internal = false)
     {
         $project_id = $this->parseInput($request);
         if ($project_id == null) {
